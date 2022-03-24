@@ -1,0 +1,17 @@
+.slick-prev:before {
+    content: "<";
+    background-color: rgb(39, 36, 36);
+    border-radius: 25px;
+    padding: 1px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.slick-next:before {
+    content: ">";
+    background-color: black;
+    border-radius: 25px;
+    padding: 1px;
+    font-size: 30px;
+    font-weight: bold;
+}

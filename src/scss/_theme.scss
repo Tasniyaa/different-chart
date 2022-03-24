@@ -1,0 +1,78 @@
+@use 'sass:math';
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/utilities/";
+
+@import "./index";
+
+// color palette
+$primary-light: #1D73E2;
+$primary:#175CB5;
+$primary-dark:#14509E;
+$primary-blur: #E8F1FC;
+$error-light: #E11D1D ;
+$error: #B61616;
+$error-dark: #710E0E ;
+$error-blur: #F9D2D2 ;
+$success-light: #1DE17F ;
+$success: #16B666 ;
+$success-dark:#0E7140 ;
+$success-blur:#D2F9E5 ;
+$info-light: #0EA5E9;
+$info:#0284C7 ;
+$info-dark: #0C4A6E;
+$info-blur: #CDEDFE;
+
+$theme-colors:map-merge($theme-colors, (
+  "primary-light": $primary-light,
+  "primary": $primary,
+  "primary-dark": $primary-dark,
+  "primary-blur": $primary-blur,
+  "error-light":$error-light ,
+  "error": $error,
+  "error-dark":$error-dark ,
+  "error-blur":$error-blur ,
+  "info-light":$info-light ,
+  "info":$info ,
+  "info-dark":$info-dark ,
+  "info-blur":$info-blur ,
+  "success-light":$success-light ,
+  "success":$success ,
+  "success-dark":$success-dark ,
+  "success-blur":$success-blur 
+));
+
+/////////////////// Font Size ///////////////////
+
+$type-scale: 1.201;
+$font-size-base: 1rem !default;
+
+$font-sizes: ( 
+    '-2': math.div(1 , math.pow($type-scale, 2)) * $font-size-base, // 0.69 rem
+    '-1': math.div(1 , $type-scale) * $font-size-base,              // 0.83 rem
+    0: $font-size-base,                                             // 1rem
+    1: math.pow($type-scale, 1) * $font-size-base,                  // 1.20 rem
+    2: math.pow($type-scale, 2) * $font-size-base,                  // 1.44 rem
+    3: math.pow($type-scale, 3) * $font-size-base,                  // 1.73 rem
+    4: math.pow($type-scale, 4) * $font-size-base,                  // 2.08 rem
+    5: math.pow($type-scale, 5) * $font-size-base,                  // 2.49 rem
+    6: math.pow($type-scale, 6) * $font-size-base,                  // 3.00 rem
+    7: math.pow($type-scale, 7) * $font-size-base,                  // 3.60 rem
+    8: math.pow($type-scale, 8) * $font-size-base,                  // 4.32 rem
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "font-size": map-merge(
+      map-get($utilities, "font-size"),
+      (
+        values: $font-sizes,
+      ),
+    ),
+  )
+);
+
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss"
